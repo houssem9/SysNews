@@ -1,0 +1,6 @@
+body {
+    background-image: url('/images/1364123539_83779.jpg'), url('../../bundles/snsysnews/css/bundles/snsysnews/images/1364123513_28719.jpg');
+   background-attachment:fixed;background-size:cover;background-position:left;
+   
+   background-repeat:no repeat; background-attachment:fixed;background-size:cover; background-positon:right;
+}
