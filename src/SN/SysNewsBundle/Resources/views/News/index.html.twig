@@ -1,0 +1,65 @@
+{% extends "SNSysNewsBundle::layout.html.twig" %}
+{% block title %}
+
+  Accueil - {{ parent() }}
+
+  {% endblock %}
+
+{% block snsysnews_body %}
+
+  <h2>Liste des news</h2>
+
+  <ul>
+
+    {% for news in listNews %}
+     <div style =" height:300px; width:600px; top:50%;right: 20%; 
+  bottom: 10%; 
+  left: 20%; 
+  background:white; position: center; text-align:center">
+      <li>
+
+        <a href="{{ path('sn_sys_news_view',{'id': news.id}) }}"style="text-decoration:none">
+
+          <FONT COLOR="blue">{{ news.titre }}
+         
+        </a>
+
+        par {{ news.user }} ,
+
+        le {{ news.dateajout|date('d/m/Y') }}<br>
+        <a href ="{{ path('sn_sys_news_view', {'id': news.id}) }}"><img 
+
+        src="{{ asset(news.image.webPath) }}"WIDTH=250 HEIGHT=250
+
+        alt="{{ news.image.alt }}"/></a><BR>
+		<center>il y a {{news.nbComments}} commentaire(s)</center>
+      </li>
+     </div>
+    {% else %}
+
+      <li>Pas (encore !) de news</li>
+
+    {% endfor %}
+
+  </ul>
+<ul style = "margin: 0; 
+  padding: 0;
+  list-style-type: none;
+  text-align :center;">
+
+  {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+
+  {% for p in range(1, nbPages) %}
+
+    <li style ="display: inline-block; 
+  margin: 0 0 0 20px;
+  text-align :center; "{% if p == page %}  {% endif %}>
+
+      <a style="text-decoration:none; padding:3px; border-width:1px; border-style:solid; border-color: white;" href="{{ path('sn_sys_news_home', {'page': p}) }}"><FONT COLOR="#FFFFFF">{{ p }}</a>
+
+    </li>
+  {% endfor %}
+
+</ul>
+
+{% endblock %}

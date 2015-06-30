@@ -1,0 +1,12 @@
+{% extends "SNAnimeBundle::layout.html.twig" %}
+{% block title %}
+
+  Anime - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+{{ include("SNAnimeBundle:Anime:formanime.html.twig") }}
+
+{% endblock %}

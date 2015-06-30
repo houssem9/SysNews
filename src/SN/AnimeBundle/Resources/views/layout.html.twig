@@ -1,0 +1,24 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+
+  Anime - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+    ConnectÃ© en tant que <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> {% endif %}
+  <h1>Anime</h1>  {% if is_granted('ROLE_ADMIN') %}<center><a href="{{ path('sn_anime_add') }}"style="text-decoration:none"><FONT COLOR="#FFFFFF">Ajouter un Anime</a></center>{% endif %}
+
+  <hr>
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+
+  {% block anime_body %}
+
+  {% endblock %}
+
+{% endblock %}

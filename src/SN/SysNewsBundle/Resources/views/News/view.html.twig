@@ -1,0 +1,104 @@
+{% extends "SNSysNewsBundle::layout.html.twig" %}
+
+{% block title %}
+
+  Lecture d'un news - {{ parent() }}
+  
+
+{% endblock %}
+
+{% block snsysnews_body %}
+
+ <center> <h2>{{ news.titre }}</h2>
+
+  <i>Par {{ news.user }} , le {{ news.dateajout|date('d/m/Y') }}</i>
+
+  <div >
+     <img 
+
+  src="{{ asset(news.image.webPath) }}"
+
+  alt="{{ news.image.alt }}"width=250 height=250
+
+/><br>
+
+    {{ news.contenu }}
+
+  </div></center>
+
+  <p>
+
+  <div> <oL><LI style ="margin: 0; 
+  padding: 0;
+  list-style-type: none;
+  text-align :center;"> <a href="{{ path('sn_sys_news_home') }}" style="text-decoration:none; border-width:1px; border-style:solid; border-color: white;">
+
+      <FONT COLOR="#FFFFFF">
+
+      Retour à la liste
+
+    </a></LI>
+
+    <LI style="margin: 0; 
+  padding: 0;
+  list-style-type: none;
+  text-align :center;">{% if is_granted('ROLE_ADMIN') %}<a href="{{ path('sn_sys_news_edit', {'id': news.id}) }}" style="text-decoration:none; border-width:1px; border-style:solid; border-color: white;">
+
+      <FONT COLOR="#FFFFFF">
+
+      Modifier le news
+
+    </a>{%endif%}</LI>
+
+   <LI style="margin: 0; 
+  padding: 0;
+  list-style-type: none;
+  text-align :center;"> {% if is_granted('ROLE_ADMIN') %}<a href="{{ path('sn_sys_news_delete', {'id': news.id}) }}" style="text-decoration:none; border-width:1px; border-style:solid; border-color: white;">
+
+      <FONT COLOR="#FFFFFF">
+
+      Supprimer le news
+
+    </a></LI>{%endif%}</oL>
+</div>
+  </p>
+  COMMENTAIRES :
+    <center><p>{% for comment in listComment %}
+	<div style =" height:200px; width:400px; top:50%;right: 20%; 
+  bottom: 10%; 
+  left: 50%; 
+  background:white; position: center; text-align:center; border:3px double blue;margin-bottom:2px; overflow: auto; color: blue;  ">
+     <li>
+
+        
+
+        par {{ comment.user }} ,
+
+        le {{ comment.date|date('d/m/Y') }}<br>
+		<div style = "padding : 5px;text-align:left;">{{comment.contenu}}</div>
+    {% if (comment.user ==  app.user or is_granted('ROLE_ADMIN') ) %}<div style="float:right;position :relative;bottom: -130px;right: 5px;"> <a href="{{ path('sn_sys_news_deletecomment', {'news_id': news.id , 'comment_id': comment.id}) }}" style="text-decoration:none; 	 ">Supprimer </a>  </div>{%endif%}
+	{% if (comment.user ==  app.user ) %}<div style="float:right;position :relative;bottom: -130px;right: 15px;"> <a href="{{ path('sn_sys_news_editcomment', {'news_id':news.id , 'comment_id': comment.id}) }}" style="text-decoration:none;">Modifier </a>  </div>{%endif%}
+     </div>
+	
+ 
+
+    {% else %}
+
+      <p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un </p>
+
+    {% endfor %}</p></center>
+            
+	
+<a href="{{ path('sn_sys_news_addcomment',  {'news_id': news.id})}}" style="text-decoration:none; border-width:1px; border-style:solid; border-color: white;"> <FONT COLOR="#FFFFFF"> Ajouter un commentaire </a>
+<center><ul class="pagination">
+  {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+  {% for p in range(1, nbPages) %}
+    <li style ="display: inline-block; 
+  margin: 0 0 0 20px;
+  text-align :center; "{% if p == page %} class="active"{% endif %}>
+      <a style="text-decoration:none; padding:3px; border-width:1px; border-style:solid; border-color: white;"href="{{ path('sn_sys_news_view', {'id': news.id, 'page': p}) }}"><FONT COLOR="#FFFFFF">{{ p }}</a>
+    </li>
+  {% endfor %}
+</ul></center>
+
+{% endblock %}

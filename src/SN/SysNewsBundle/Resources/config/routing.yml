@@ -1,0 +1,78 @@
+sn_sys_news_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SNSysNewsBundle:Default:index }
+
+sn_sys_news_home:
+
+    path:      /News/{page}
+
+    defaults:  { _controller: SNSysNewsBundle:News:index, page: 1 }
+
+    requirements:
+
+        page: \d*
+
+sn_sys_news_view:
+
+    path:      /News/news/{id}/{page}
+
+    defaults:  { _controller: SNSysNewsBundle:News:view, page:1 }
+
+    requirements:
+
+        id: \d+
+        page: \d*
+sn_sys_news_add:
+
+    path:      /News/add
+
+    defaults:  { _controller: SNSysNewsBundle:News:add }
+
+sn_sys_news_edit:
+
+    path:      /News/edit/{id}
+
+    defaults:  { _controller: SNSysNewsBundle:News:edit }
+
+    requirements:
+
+        id: \d+
+
+sn_sys_news_delete:
+
+    path:      /News/delete/{id}
+
+    defaults:  { _controller: SNSysNewsBundle:News:delete }
+
+    requirements:
+
+        id: \d+
+sn_sys_news_addcomment:
+
+    path:    /News/commentaire/{news_id}
+ 
+    defaults:  { _controller: SNSysNewsBundle:News:addcomment }
+    
+    requirements:
+
+        news_id: \d+
+sn_sys_news_editcomment:
+
+    path:    /News/edit/{news_id}/commentaire/{comment_id}
+ 
+    defaults:  { _controller: SNSysNewsBundle:News:editcomment }
+    
+    requirements:
+
+        news_id: \d+
+        comment_id: \d+
+sn_sys_news_deletecomment:
+
+    path:    /News/delete/{news_id}/commentaire/{comment_id}
+ 
+    defaults:  { _controller: SNSysNewsBundle:News:deletecomment }
+    
+    requirements:
+
+        news_id: \d+
+        comment_id: \d+

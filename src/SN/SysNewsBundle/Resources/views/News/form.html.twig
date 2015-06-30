@@ -1,0 +1,62 @@
+<h3>Formulaire d'annonce</h3>
+
+
+
+  <div class="well">
+<center>
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+
+    {{ form_errors(form) }}
+	<div>
+	
+	
+	<div>{{ app.user }}</div>
+	</div>
+
+    <div class="form-group">
+
+      {# Génération du label. #}
+
+      {{ form_label(form.titre, "Titre de news", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+
+      {{ form_errors(form.titre) }}
+
+      <div>
+
+        {# Génération de l'input. #}
+
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+
+      </div>
+
+    </div>
+	<div class="form-group">
+
+      {{ form_label(form.contenu, "Contenu de news", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.contenu) }}
+
+      <div class="col-sm-4">
+
+        {{ form_widget(form.contenu, {'attr': {'class': 'form-control'}}) }}
+
+      </div>
+
+    </div>
+	
+	 <div>{{ form_row(form.dateajout) }}</div>
+	 <div>{{form_row(form.image)}}</div>
+
+  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {# Fermeture de la balise <form> du formulaire HTML #}
+
+  {{ form_end(form) }}
+</center>
+</div>
+
+

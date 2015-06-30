@@ -1,0 +1,31 @@
+{% extends "SNAnimeBundle::layout.html.twig" %}
+{% block title %}
+
+  Anime - {{ parent() }}
+
+{% endblock %}
+
+{% block anime_body %}
+
+<center><div >
+     <img 
+
+  src="{{ asset(anime.image.webPath) }}"
+
+  alt="{{ anime.image.alt }}"width=700 height=200/></br>
+<div style="height:350px; width:650px;background:white; position: center; text-align:center; overflow: auto; "> 
+<h4><span style ="COLOR:black;">titre :   <i><font color=blue>{{anime.titre}}</i></br></span></h4>
+<h4><span style ="COLOR:black;">Auteur : <i><font color=blue>{{anime.auteur}}</i></br></span></h4>
+<h4><span style ="COLOR:black;">Genres :{% for genres in anime.genres %}
+    <i><font color=blue>{{genres.name}}{% if not loop.last %}, {% endif %}</i>
+{% endfor %}</br></span></h4>
+<h4><span style ="COLOR:black;">Etat :   {% if anime.etat  %} <i><font color=blue>terminer</i> {% else %} <i><font color=blue>en cour</i> {% endif %}</br></span></h4>
+<h4><span style ="COLOR:black;">Sortie initiale :   <i><font color=blue>{{anime.sortieinitial|date('d/m/Y')}}</i></br></span></h4>
+<h4><span style ="COLOR:black;">Nombre d'episodes :  <i><font color=blue>{{anime.nbEpisodes}}</i></br></span></h4>
+<h4><span style ="COLOR:black;">Synopsis</span></h4>  <div >{{anime.synopsis}}</div>
+
+ </div>
+</div></center>
+<ol><li>{% if is_granted('ROLE_ADMIN') %}<div style="float:right;position :relative;bottom: -130px;right: 15px;"> <a href="{{ path('sn_anime_edit', {'id':anime.id }) }}" style="text-decoration:none;"><font color = white>Modifier </a>  </div>{%endif%}</li></ol>
+
+{% endblock %}

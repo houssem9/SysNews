@@ -1,0 +1,28 @@
+sn_anime_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SNAnimeBundle:Default:index }
+
+sn_anime_home:
+    path: /anime/{page}
+    defaults: {_controller: SNAnimeBundle:Anime:index, page:1 }
+    requirements:
+        page: \d*
+sn_anime_view:
+    path: /anime/anime/{id}
+    defaults : {_controller: SNAnimeBundle:Anime:view }
+    requirements:
+        id: \d+
+sn_anime_add:
+    path: /anime/add
+    defaults: {_controller: SNAnimeBundle:Anime:add}
+sn_anime_edit:
+    path:      /anime/edit/{id}
+    defaults:  { _controller: SNAnimeBundle:Anime:edit }
+    requirements:
+        id: \d+
+
+oc_platform_delete:
+    path:      /anime/delete/{id}
+    defaults:  { _controller: SNAnimeBundle:Anime:delete }
+    requirements:
+        id: \d+

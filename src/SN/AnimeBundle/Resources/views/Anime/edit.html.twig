@@ -1,0 +1,20 @@
+{% extends "SNAnimeBundle::layout.html.twig" %}
+{% block title %}
+
+  Anime - {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+
+ <h2>modifier un anime</h2>
+
+   {{ include("SNAnimeBundle:Anime:formanime.html.twig") }}
+
+  <p>
+
+    Attention : cette anime sera modifier .
+
+  </p>
+
+{% endblock %}

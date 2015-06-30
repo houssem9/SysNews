@@ -1,0 +1,19 @@
+services:
+    sn_sys_news.beta.html:
+        class: SN\SysNewsBundle\Beta\BetaHtml
+    sn_sys_news.beta.listener:
+        class: SN\SysNewsBundle\Beta\BetaListener
+        arguments: [@sn_sys_news.beta.html, "2015-10-23"]
+        tags:
+             - { name: kernel.event_listener, event: kernel.response, method: processBeta }
+    sn_sys_news.count.html:
+        class: SN\SysNewsBundle\Count\CountHtml
+    sn_sys_news.count.listener:
+        class: SN\SysNewsBundle\Count\CountListener
+        arguments: [@service_container, @sn_sys_news.count.html, @doctrine.orm.entity_manager]
+        tags:
+             - { name: kernel.event_listener, event: kernel.response, method: processCount }
+        
+
+         
+        

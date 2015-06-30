@@ -1,0 +1,11 @@
+{% extends "SNSysNewsBundle::layout.html.twig" %}
+{% block body %}
+{% for comment in listcom %}
+<div >par {{ comment.user }} ,
+
+        le {{ comment.date|date('d/m/Y') }}<br>
+		{{coment.contenu}}</div>
+{%else%}
+<p>Aucun commentaire n'a encore été posté. Soyez le premier à en laisser un !</p>
+{%endfor%}
+{% endblock %}
