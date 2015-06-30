@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>baka fansub </title>
+		{% stylesheets  'c:/wamp/www/symfony/web/css/9134ad3.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen"/>
+    
+{% endstylesheets %}
+
+	</head>
+
+    <body  >
+
+
+<FONT face="arial">
+<CENTER>
+  <h1><B><FONT COLOR="#F8F8FA"><A HREF="{{ path('sn_sys_news_home') }}"style="text-decoration:none"><FONT COLOR="#08C03C">BAKA FANSUB</A></B></h1>
+  </CENTER>
+
+<oL >
+<div><li ><A HREF="{{ path('sn_sys_news_home') }}"style="text-decoration:none"><FONT COLOR="#08C03C"><LI><H2>ACCEUIL </H2></A> 
+     <LI  ><A HREF="{{ path('sn_anime_home') }}"style="text-decoration:none"><FONT COLOR="#FF3333"><LI><H2>ANIME</H2></A>
+     <LI  >{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}<a href="{{ path('fos_user_security_logout') }}"style="text-decoration:none"><FONT COLOR="#0000FF"><LI><h2>DÉCONNECTION</h2></a>{% else %}<a href="{{ path('fos_user_registration_register') }}"style="text-decoration:none"><FONT COLOR="#E97406"><LI><h2>INSCRIPTION</h2></a>
+     <LI  ><a href="{{ path('fos_user_security_login') }}"style="text-decoration:none"><FONT COLOR="#0000FF"><LI><h2>CONNEXION</h2></a>{% endif %}
+    
+</div>
+</oL>
+
+<div id="menu">
+{% block body %}
+
+        {% endblock %}
+
+</div>
+  <footer>
+      <p><h5><center>baka fansub cree en 2015 © {{ 'now'|date('Y') }} Tous droits réservés .</center></h5></p>
+    </footer>
+
+</body>
+
+</html>
