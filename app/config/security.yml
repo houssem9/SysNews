@@ -13,7 +13,7 @@ security:
             memory:
                 users:
                     
-                    admin: { password: , roles: [ 'ROLE_ADMIN' ] }
+                    
                     
         main:
             id: fos_user.user_provider.username
