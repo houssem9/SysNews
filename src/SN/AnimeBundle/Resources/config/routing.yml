@@ -26,3 +26,4 @@ oc_platform_delete:
     defaults:  { _controller: SNAnimeBundle:Anime:delete }
     requirements:
         id: \d+
+		

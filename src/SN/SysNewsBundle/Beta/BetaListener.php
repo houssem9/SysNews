@@ -1,8 +1,6 @@
 <?php
 namespace SN\SysNewsBundle\Beta;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 class BetaListener
 {
   protected $betaHTML;

@@ -76,3 +76,4 @@ sn_sys_news_deletecomment:
 
         news_id: \d+
         comment_id: \d+
+		

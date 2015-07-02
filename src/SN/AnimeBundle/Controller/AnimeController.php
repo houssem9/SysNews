@@ -2,13 +2,10 @@
 namespace SN\AnimeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use SN\AnimeBundle\Entity\Anime;
 use SN\AnimeBundle\Form\AnimeType;
 use SN\AnimeBundle\Form\AnimeEditType;
-use SN\AnimeBundle\Entity\Genres;
-use SN\AnimeBundle\Entity\Imageanime;
 class AnimeController extends Controller
 {
   public function indexAction($page)
@@ -24,7 +21,7 @@ class AnimeController extends Controller
    }
   public function viewAction($id)
   {
-     $em = $this->getDoctrine()->getManager();
+     
    $anime = $this->getDoctrine()->getRepository('SNAnimeBundle:Anime')->find($id);
    
    if ($anime===null)

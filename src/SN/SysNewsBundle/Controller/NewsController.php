@@ -2,18 +2,14 @@
 namespace SN\SysNewsBundle\Controller;
 use SN\SysNewsBundle\Entity\Comment;
 use SN\SysNewsBundle\Form\CommentType;
-use SN\UserBundle\Entity\User;
 use SN\SysNewsBundle\Form\NewsType;
 use SN\SysNewsBundle\Form\NewsEditType;
 use SN\SysNewsBundle\Form\CommentEditType;
 use SN\SysNewsBundle\Entity\News;
-use SN\SysNewsbundle\Entity\Image;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 class NewsController extends Controller
 {
@@ -89,7 +85,7 @@ public function addAction(Request $request)
 
       // Sinon on déclenche une exception « Accès interdit »
 
-      throw new AccessDeniedException('Accès limité aux auteurs.');
+      throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
     }
       $news = new News();
@@ -102,7 +98,7 @@ public function addAction(Request $request)
       $em->flush();
       // Ici, on s'occupera de la création et de la gestion du formulaire
 
-      $request->getSession()->getFlashBag()->add('notice', 'news bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('notice', 'news bien enregistrÃ©e.');
 
       // Puis on redirige vers la page de visualisation de cettte annonce
 
@@ -124,7 +120,7 @@ public function addAction(Request $request)
 
       // Sinon on déclenche une exception « Accès interdit »
 
-      throw new AccessDeniedException('Accès limité aux auteurs.');
+      throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
     }
    $em = $this->getDoctrine()->getManager();
@@ -142,7 +138,7 @@ public function addAction(Request $request)
 
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'News bien modifiée.');
+      $request->getSession()->getFlashBag()->add('notice', 'News bien modifiÃ©e.');
 
       return $this->redirect($this->generateUrl('sn_sys_news_view', array('id' => $news->getId())));
 
@@ -166,7 +162,7 @@ public function addAction(Request $request)
 
       // Sinon on déclenche une exception « Accès interdit »
 
-      throw new AccessDeniedException('Accès limité aux auteurs.');
+      throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
     }
     $em = $this->getDoctrine()->getManager();
@@ -183,7 +179,7 @@ public function addAction(Request $request)
 
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('info', "Le news a bien été supprimée.");
+      $request->getSession()->getFlashBag()->add('info', "Le news a bien Ã©tÃ© supprimÃ©e.");
 
       return $this->redirect($this->generateUrl('sn_sys_news_home'));
 
@@ -236,7 +232,7 @@ public function addAction(Request $request)
        
        $em->persist($com);       
        $em->flush();
-       $req->getSession()->getFlashBag()->add('notice', 'commentaire bien enregistrée.');
+       $req->getSession()->getFlashBag()->add('notice', 'commentaire bien enregistrÃ©e.');
        return $this->redirect($this->generateUrl('sn_sys_news_view', array( 'id' => $news->getId())));}
      return $this->render('SNSysNewsBundle:News:addcomment.html.twig', array(
 
@@ -269,7 +265,7 @@ public function editcommentAction( News $news, Comment $com, Request $request)
 
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice', 'commentaire bien modifiée.');
+      $request->getSession()->getFlashBag()->add('notice', 'commentaire bien modifiÃ©e.');
 
       return $this->redirect($this->generateUrl('sn_sys_news_view', array('id' => $news->getId())));
 
@@ -312,7 +308,7 @@ public function deletecommentAction(News $news, Comment $com, Request $request )
       
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('info', "Le commentaire a bien été supprimée.");
+      $request->getSession()->getFlashBag()->add('info', "Le commentaire a bien Ã©tÃ© supprimÃ©e.");
 
       return $this->redirect($this->generateUrl('sn_sys_news_view', array('id' => $news->getId())));
 
