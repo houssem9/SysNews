@@ -1,6 +1,4 @@
 <?php
-
-
 namespace SN\AnimeBundle\Entity;
 
 

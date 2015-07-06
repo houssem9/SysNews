@@ -45,7 +45,7 @@ public function addAction(Request $request)
       $em = $this->getDoctrine()->getManager();
       $em->persist($anime);
       $em->flush();
-      $request->getSession()->getFlashBag()->add('notice', 'Anime bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('notice', 'Anime bien enregistrÃ©e.');
 
       
       return $this->redirect($this->generateUrl('sn_anime_view', array('id' => $anime->getId())));
@@ -66,7 +66,7 @@ public function addAction(Request $request)
     $form = $this->createForm(new AnimeEditType(), $anime);
     if ($form->handleRequest($request)->isValid()) {
       $em->flush();
-      $request->getSession()->getFlashBag()->add('notice', 'Anime bien modifiée.');
+      $request->getSession()->getFlashBag()->add('notice', 'Anime bien modifiÃ©e.');
 
       return $this->redirect($this->generateUrl('sn_anime_view', array('id' => $anime->getId())));
     }
