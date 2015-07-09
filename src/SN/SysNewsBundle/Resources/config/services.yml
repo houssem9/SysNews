@@ -13,8 +13,4 @@ services:
         arguments: [@service_container, @sn_sys_news.count.html, @doctrine.orm.entity_manager]
         tags:
              - { name: kernel.event_listener, event: kernel.response, method: processCount }
-        
-
-         
- 
- 
+			 

@@ -57,5 +57,6 @@ class CountListener
   $nbvisit = $doctrine->getRepository('SNSysNewsBundle:Connecte')->getcountnumbervisit();
   $rep = $this->counthtml->viewNbVisit($event->getResponse(), $nbvisit);
   $event->setResponse($rep);
-}}  
+}
+}  
    
