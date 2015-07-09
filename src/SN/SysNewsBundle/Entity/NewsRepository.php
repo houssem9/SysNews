@@ -1,10 +1,7 @@
 <?php
 namespace SN\SysNewsBundle\Entity;
 
-
 use Doctrine\ORM\EntityRepository;
-
-
 use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * NewsRepository
