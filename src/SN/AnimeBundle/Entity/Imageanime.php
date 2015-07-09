@@ -4,7 +4,6 @@ namespace SN\AnimeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * Imageanime
  *

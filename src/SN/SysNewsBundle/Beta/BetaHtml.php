@@ -4,7 +4,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BetaHtml
 {
-  // Méthode pour ajouter le « bêta » à une réponse
+  // MÃ©thode pour ajouter le « bêta » à une réponse
   public function displayBeta(Response $response, $remainingDays)
   {
     $content = $response->getContent();

@@ -7,7 +7,7 @@
 
 {% block body %}
 
-  {# On dÈfinit un sous-titre commun ‡ toutes les pages du bundle, par exemple #}
+  {# On d√©finit un sous-titre commun ‡ toutes les pages du bundle, par exemple #}
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
     Connect√© en tant que <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> {% endif %}

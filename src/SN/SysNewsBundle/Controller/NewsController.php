@@ -21,7 +21,7 @@ public function indexAction($page)
     }
    $nbPerPage = 5;
 
-    // On récupère notre objet Paginator
+    // On rÃ©cupÃ©re notre objet Paginator
 
     $listNews = $this->getDoctrine()
 

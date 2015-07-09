@@ -34,7 +34,7 @@ class NewsRepository extends EntityRepository
 
     $query
 
-      // On définit l'annonce à partir de laquelle commencer la liste
+      // On dÃ©finit l'annonce à partir de laquelle commencer la liste
 
       ->setFirstResult(($page-1) * $nbPerPage)
 

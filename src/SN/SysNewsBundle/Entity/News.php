@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="SN\SysNewsBundle\Entity\NewsRepository")
- * @UniqueEntity(fields="titre", message="Un news existe dÈj‡ avec ce titre.") */
+ * @UniqueEntity(fields="titre", message="Un news existe d√©j√† avec ce titre.") */
 
 class News
 

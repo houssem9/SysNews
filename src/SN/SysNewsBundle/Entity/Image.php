@@ -20,6 +20,7 @@ class Image
 /**
 * @Assert\File
 */
+
 private $file;
 private $tempFilename;
 /**

@@ -5,7 +5,7 @@ class BetaListener
 {
   protected $betaHTML;
 
-  // La date de fin de la version bêta :
+  // La date de fin de la version bÃ©ta :
   // - Avant cette date, on affichera un compte à rebours (J-3 par exemple)
   // - Après cette date, on n'affichera plus le « bêta »
   protected $endDate;
