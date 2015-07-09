@@ -31,19 +31,19 @@ public function getAnimes($page, $nbPerPage)
 
     $query
 
-      // On définit l'annonce à partir de laquelle commencer la liste
+      // On dÃ©finit l'annonce Ã  partir de laquelle commencer la liste
 
       ->setFirstResult(($page-1) * $nbPerPage)
 
-      // Ainsi que le nombre d'annonce à afficher sur une page
+      // Ainsi que le nombre d'annonce Ã  afficher sur une page
 
       ->setMaxResults($nbPerPage)
 
     ;
 
-    // Enfin, on retourne l'objet Paginator correspondant à la requête construite
+    // Enfin, on retourne l'objet Paginator correspondant Ã  la requÃ©te construite
 
-    // (n'oubliez pas le use correspondant en début de fichier)
+    // (n'oubliez pas le use correspondant en dÃ©but de fichier)
 
     return new Paginator($query, true);
 

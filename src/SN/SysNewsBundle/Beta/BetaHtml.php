@@ -4,12 +4,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BetaHtml
 {
-  // MÃ©thode pour ajouter le « bêta » à une réponse
+  // MÃ©thode pour ajouter le  beta  Ã  une rÃ©ponse
   public function displayBeta(Response $response, $remainingDays)
   {
     $content = $response->getContent();
 
-    // Code à rajouter
+    // Code Ã  rajouter
     $html = '<span style="color: red; font-size: 0.5em;"> - Beta J-'.(int) $remainingDays.' !</span>';
 
     // Insertion du code dans la page, dans le premier <h1>
@@ -20,7 +20,7 @@ class BetaHtml
       1
     );
 
-    // Modification du contenu dans la réponse
+    // Modification du contenu dans la rÃ©ponse
     $response->setContent($content);
 
     return $response;

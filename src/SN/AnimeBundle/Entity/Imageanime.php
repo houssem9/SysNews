@@ -136,7 +136,7 @@ public function getFile()
 
       $this->tempFilename = $this->url;
 
-      // On réinitialise les valeurs des attributs url et alt
+      // On rÃ©initialise les valeurs des attributs url et alt
 
       $this->url = null;
 
@@ -164,13 +164,13 @@ public function getFile()
 
     }
 
-    // Le nom du fichier est son id, on doit juste stocker également son extension
+    // Le nom du fichier est son id, on doit juste stocker Ã©galement son extension
 
-    // Pour faire propre, on devrait renommer cet attribut en « extension », plutôt que « url »
+    // Pour faire propre, on devrait renommer cet attribut en extension , plutot que  url 
 
     $this->url = $this->file->guessExtension();
 
-    // Et on génère l'attribut alt de la balise <img>, à la valeur du nom du fichier sur le PC de l'internaute
+    // Et on gÃ©nÃ¨re l'attribut alt de la balise <img>, Ã  la valeur du nom du fichier sur le PC de l'internaute
 
     $this->alt = $this->file->getClientOriginalName();
 
@@ -210,13 +210,13 @@ public function getFile()
 
     }
 
-    // On déplace le fichier envoyé dans le répertoire de notre choix
+    // On dÃ©place le fichier envoyÃ© dans le rÃ©pertoire de notre choix
 
     $this->file->move(
 
-      $this->getUploadRootDir(), // Le répertoire de destination
+      $this->getUploadRootDir(), // Le rÃ©pertoire de destination
 
-      $this->id.'.'.$this->url   // Le nom du fichier à créer, ici « id.extension »
+      $this->id.'.'.$this->url   // Le nom du fichier Ã  crÃ©er, ici  id.extension 
 
     );
 
@@ -232,7 +232,7 @@ public function getFile()
 
   {
 
-    // On sauvegarde temporairement le nom du fichier, car il dépend de l'id
+    // On sauvegarde temporairement le nom du fichier, car il dÃ©pend de l'id
 
     $this->tempFilename = $this->getUploadRootDir().'/'.$this->id.'.'.$this->url;
 
@@ -248,7 +248,7 @@ public function getFile()
 
   {
 
-    // En PostRemove, on n'a pas accès à l'id, on utilise notre nom sauvegardé
+    // En PostRemove, on n'a pas accÃ©s Ã  l'id, on utilise notre nom sauvegardÃ©
 
     if (file_exists($this->tempFilename)) {
 

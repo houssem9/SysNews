@@ -4,14 +4,14 @@
 {# Dans notre layout, il faut d√©finir le block body #}
 {% block body %}
 
-  {# On affiche les messages flash que d√©finissent les contrÙleurs du bundle #}
+  {# On affiche les messages flash que d√©finissent les controleurs du bundle #}
   {% for key, message in app.session.flashbag.all() %}
     <div class="alert alert-{{ key }}">
       {{ ( 'FOSUserBundle') }}
     </div>
   {% endfor %}
 
-  {# On dÈfinit ce block, dans lequel vont venir s'insÈrer les autres vues du bundle #}
+  {# On d√©finit ce block, dans lequel vont venir s'ins√©rer les autres vues du bundle #}
   {% block fos_user_content %}
   {% endblock fos_user_content %}
 

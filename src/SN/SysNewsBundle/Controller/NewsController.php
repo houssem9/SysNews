@@ -33,11 +33,11 @@ public function indexAction($page)
 
     ;
 
-    // On calcule le nombre total de pages grâce au count($listNews) qui retourne le nombre total d'annonces
+    // On calcule le nombre total de pages grÃ ce au count($listNews) qui retourne le nombre total d'annonces
 
      $nbPages = ceil(count($listNews)/$nbPerPage);
 
-    // On donne toutes les informations nécessaires à la vue
+    // On donne toutes les informations nÃ©cessaires Ã  la vue
 
     return $this->render('SNSysNewsBundle:News:index.html.twig', array(
 
@@ -83,7 +83,7 @@ public function addAction(Request $request)
   {
       if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
 
-      // Sinon on déclenche une exception « Accès interdit »
+      // Sinon on dÃ©clenche une exception Ã  AccÃ©s interdit 
 
       throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
@@ -96,7 +96,7 @@ public function addAction(Request $request)
       $em->persist($news);
       
       $em->flush();
-      // Ici, on s'occupera de la création et de la gestion du formulaire
+      // Ici, on s'occupera de la crÃ©ation et de la gestion du formulaire
 
       $request->getSession()->getFlashBag()->add('notice', 'news bien enregistrÃ©e.');
 
@@ -118,7 +118,7 @@ public function addAction(Request $request)
     
       if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
 
-      // Sinon on déclenche une exception « Accès interdit »
+      // Sinon on dÃ©clenche une exception Ã  AccÃ©s interdit 
 
       throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
@@ -134,7 +134,7 @@ public function addAction(Request $request)
 
     if ($form->handleRequest($request)->isValid()) {
 
-      // Inutile de persister ici, Doctrine connait déjà notre annonce
+      // Inutile de persister ici, Doctrine connait dÃ©jÃ  notre annonce
 
       $em->flush();
 
@@ -148,7 +148,7 @@ public function addAction(Request $request)
 
       'form'   => $form->createView(),
 
-      'news' => $news // Je passe également l'annonce à la vue si jamais elle veut l'afficher
+      'news' => $news // Je passe Ã©galement l'annonce Ã  la vue si jamais elle veut l'afficher
 
     ));
 
@@ -160,7 +160,7 @@ public function addAction(Request $request)
   {
     if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
 
-      // Sinon on déclenche une exception « Accès interdit »
+      // Sinon on dÃ©clenche une exception Ã  AccÃ©s interdit 
 
       throw new AccessDeniedException('AccÃ©s limitÃ© aux auteurs.');
 
@@ -185,7 +185,7 @@ public function addAction(Request $request)
 
     }
 
-    // Si la requête est en GET, on affiche une page de confirmation avant de supprimer
+    // Si la requÃ©te est en GET, on affiche une page de confirmation avant de supprimer
 
     return $this->render('SNSysNewsBundle:News:delete.html.twig', array(
 
@@ -205,7 +205,7 @@ public function addAction(Request $request)
   {
     if (!$this->get('security.context')->isGranted('ROLE_USER')) {
 
-      // Sinon on déclenche une exception « Accès interdit »
+      // Sinon on dÃ©clenche une exception Ã  AccÃ©s interdit 
 
       throw new AccessDeniedException('Tu doit etre connecter pour pouvoir mettre un commentaire.');
 
@@ -261,7 +261,7 @@ public function editcommentAction( News $news, Comment $com, Request $request)
 
     if ($form->handleRequest($request)->isValid()) {
 
-      // Inutile de persister ici, Doctrine connait déjà notre annonce
+      // Inutile de persister ici, Doctrine connait dÃ©jÃ  notre annonce
 
       $em->flush();
 
@@ -314,7 +314,7 @@ public function deletecommentAction(News $news, Comment $com, Request $request )
 
     }
 
-    // Si la requête est en GET, on affiche une page de confirmation avant de supprimer
+    // Si la requÃ©te est en GET, on affiche une page de confirmation avant de supprimer
 
     return $this->render('SNSysNewsBundle:News:deletecomment.html.twig', array(
 

@@ -6,8 +6,8 @@ class BetaListener
   protected $betaHTML;
 
   // La date de fin de la version bÃ©ta :
-  // - Avant cette date, on affichera un compte à rebours (J-3 par exemple)
-  // - Après cette date, on n'affichera plus le « bêta »
+  // - Avant cette date, on affichera un compte Ã  rebours (J-3 par exemple)
+  // - AprÃ©s cette date, on n'affichera plus le  beta 
   protected $endDate;
 
   public function __construct(BetaHTML $betaHTML, $endDate)
@@ -23,14 +23,14 @@ class BetaListener
 
     $remainingDays = $this->endDate->diff(new \Datetime())->format('%d');
 
-    // Si la date est dépassée, on ne fait rien
+    // Si la date est depassÃ©e, on ne fait rien
     if ($remainingDays <= 0) {
       return;
     }
 
     // On utilise notre BetaHRML
     $response = $this->betaHTML->displayBeta($event->getResponse(), $remainingDays);
-    // On met à jour la réponse avec la nouvelle valeur
+    // On met Ã  jour la rÃ©ponse avec la nouvelle valeur
     $event->setResponse($response);
   }
 }

@@ -7,7 +7,7 @@
 
 {% block body %}
 
-  {# On définit un sous-titre commun � toutes les pages du bundle, par exemple #}
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
     Connecté en tant que <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> {% endif %}
@@ -15,7 +15,7 @@
 
   <hr>
 
-  {# On d�finit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
 
   {% block anime_body %}
 
